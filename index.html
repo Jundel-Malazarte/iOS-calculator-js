@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>JavaScript Calculator</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+    </head>
+    <body>
+        <!-- Creating an ID for calculator -->
+         <div id="calculator"> <!-- Div element For box or form -->
+            <input id="display" readonly>
+            <!-- Creating an ID for buttons -->
+            <div id="keys">
+                <!-- Creating an append to display function -->
+                <button onclick="clearDisplay()" class="clear-btn">AC</button> <!-- All clear button -->
+                <button onclick="appendToDisplay('-')" class="negative-btn">+/-</button>
+                <button onclick="appendToDisplay('%')" class="percent-btn">%</button>
+                <button onclick="appendToDisplay('÷')" class="operator-btn">÷</button>
+                <button onclick="appendToDisplay('7')">7</button>
+                <button onclick="appendToDisplay('8')">8</button>
+                <button onclick="appendToDisplay('9')">9</button>
+                <button onclick="appendToDisplay('x')" class="operator-btn">x</button>
+                <button onclick="appendToDisplay('4')">4</button>
+                <button onclick="appendToDisplay('5')">5</button>
+                <button onclick="appendToDisplay('6')">6</button>
+                <button onclick="appendToDisplay('-')" class="operator-btn">-</button>
+                <button onclick="appendToDisplay('1')">1</button>
+                <button onclick="appendToDisplay('2')">2</button>
+                <button onclick="appendToDisplay('3')">3</button>
+                <button onclick="appendToDisplay('+')" class="operator-btn">+</button>
+                <button onclick="appendToDisplay('0')" class ="zero">0</button>
+                <button onclick="appendToDisplay('.')">.</button>
+                <button onclick="calculate()" class="equal-btn">=</button>
+            </div>
+         </div>
+
+         <script src="js/script.js"></script>
+    
+    </body>
+</html>
