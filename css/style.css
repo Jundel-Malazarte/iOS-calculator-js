@@ -2,8 +2,8 @@
 /* rem stands for root element */
 body{
     margin: 0;
-    display: flex; /* for flexbox*/
-    justify-content: center; /* for flexbox */
+    display: flex; 
+    justify-content: center; 
     align-items: center;
     height: 100vh; /* balance the height of verticl and the horizontal (vh)*/
     background-color: #eceff1;
@@ -13,6 +13,8 @@ body{
     font-family:Arial, sans-serif;
     background-color: #212121;
     border-radius: 20px;
+    padding: 20px;
+    margin-right: 10px;
     overflow: hidden;
     max-width: 500px;
 
@@ -28,16 +30,15 @@ body{
     color: #eceff1;
     text-align: right;
     padding: 10px;
-    padding-right: 50px;
-    overflow: hidden;          /* Ensures no overflow outside the container */
-    text-overflow: ellipsis;   /* Adds ellipsis (...) if the text overflows */
-    white-space: nowrap;       /* Prevents text from wrapping to the next line */
+    overflow: hidden;      
+    text-overflow: ellipsis;   
+    white-space: nowrap;      
 }
 
 #keys{
     display: grid;
     grid-template-columns: repeat(4, 1fr); /* fr stands for fraction unit */
-    gap: 10px;
+    gap: 20px;
     padding: 20px;
 }
 
