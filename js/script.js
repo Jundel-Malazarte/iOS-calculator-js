@@ -20,8 +20,34 @@ function appendToDisplay(value) {
     display.value += value;
 }
 
+
 function clearDisplay() {
     display.value = "";
+}
+
+function formatNumber(number) {
+    // Convert to number to handle scientific notation
+    let num = Number(number);
+    
+    // Check if the number is too large or small
+    if (Math.abs(num) >= 1e16 || (Math.abs(num) < 1e-10 && num !== 0)) {
+        return num.toExponential(5);
+    }
+    
+    // Convert to string and limit decimal places
+    let str = num.toString();
+    
+    // Handle decimal numbers
+    if (str.includes('.')) {
+        // Limit to 8 decimal places
+        let [integer, decimal] = str.split('.');
+        decimal = decimal.slice(0, 8);
+        // Remove trailing zeros
+        decimal = decimal.replace(/0+$/, '');
+        return decimal ? `${integer}.${decimal}` : integer;
+    }
+    
+    return str;
 }
 
 function calculate() {
@@ -30,14 +56,23 @@ function calculate() {
         let expression = display.value.replace(/x/g, '*').replace(/÷/g, '/');
 
         // Use Function constructor to evaluate the expression safely
-        display.value = new Function('return ' + expression)();
+        let result = new Function('return ' + expression)();
         
-        // Handle division by zero
-        if (display.value === Infinity || Number.isNaN(display.value)) {
-            display.value = "Error";
+        // Handle division by zero and invalid operations
+        if (result === Infinity || result === -Infinity) {
+            display.value = "Not a number";
+            return;
         }
+        
+        if (Number.isNaN(result)) {
+            display.value = "Error";
+            return;
+        }
+
+        // Format the result
+        display.value = formatNumber(result);
+        
     } catch (error) {
-        // If an error occurs, display "Error"
         display.value = "Error";
     }
 }
